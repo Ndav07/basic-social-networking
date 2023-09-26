@@ -70,4 +70,80 @@ export const usersRouter = createTRPCRouter({
         },
       });
     }),
+
+  myPosts: protectedProcedure.query(async ({ ctx: { prisma, session } }) => {
+    return await prisma.post.findMany({
+      where: { userId: session.user.id },
+      orderBy: { createdAt: "desc" },
+      include: { _count: { select: { comment: true, likes: true } } },
+    });
+  }),
+
+  myFollowersAndfollowing: protectedProcedure.query(
+    async ({ ctx: { prisma, session } }) => {
+      const [followers, following] = await prisma.$transaction([
+        prisma.user.findMany({
+          where: { id: session.user.id },
+          select: { followers: true },
+        }),
+        prisma.user.findMany({
+          where: { id: session.user.id },
+          select: { following: true },
+        }),
+      ]);
+      return { followers, following };
+    },
+  ),
+
+  me: protectedProcedure.query(async ({ ctx: { prisma, session } }) => {
+    return prisma.user.findUnique({
+      where: { id: session.user.id },
+      include: { _count: { select: { followers: true, following: true } } },
+    });
+  }),
+
+  follow: protectedProcedure
+    .input(
+      z.object({
+        id: z.string().cuid2(),
+      }),
+    )
+    .mutation(async ({ ctx: { prisma, session }, input: { id } }) => {
+      await prisma.user.update({
+        where: {
+          id: session.user.id,
+        },
+        data: { following: { connect: { id } } },
+      });
+    }),
+
+  unFollow: protectedProcedure
+    .input(
+      z.object({
+        id: z.string().cuid2(),
+      }),
+    )
+    .mutation(async ({ ctx, input: { id } }) => {
+      await ctx.prisma.user.update({
+        where: {
+          id,
+        },
+        data: { following: { disconnect: { id } } },
+      });
+    }),
+
+  removeFollower: protectedProcedure
+    .input(
+      z.object({
+        id: z.string().cuid2(),
+      }),
+    )
+    .mutation(async ({ ctx, input: { id } }) => {
+      await ctx.prisma.user.update({
+        where: {
+          id,
+        },
+        data: { followers: { disconnect: { id } } },
+      });
+    }),
 });
