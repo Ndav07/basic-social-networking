@@ -1,6 +1,7 @@
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { createId } from "@paralleldrive/cuid2";
+import { hash } from "bcrypt";
 
 const UserValidator = z.object({
   name: z.string().min(1),
@@ -9,17 +10,19 @@ const UserValidator = z.object({
 });
 
 export const usersRouter = createTRPCRouter({
-  create: protectedProcedure
+  create: publicProcedure
     .input(UserValidator)
     .mutation(async ({ ctx, input }) => {
       const { name, email, password } = input;
+
+      const hashedPassword = await hash(password, 8);
 
       const user = await ctx.prisma.user.create({
         data: {
           id: createId(),
           name,
           email,
-          password,
+          password: hashedPassword,
         },
       });
 
