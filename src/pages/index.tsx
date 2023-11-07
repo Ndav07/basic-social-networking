@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { api } from "~/utils/api";
 
 export default function Home() {
   return (

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { api } from "~/utils/api";
 
 
 export default function Home() {
@@ -13,18 +14,228 @@ return (
     </Head>
 
     <main className="bg-main flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat">
-        <div className="flex justify-center">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                Feed
-            </button>
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
-                Criar
-            </button>
-            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                Perfil
-            </button>
-        </div>
 
+        <div className="w-[1440px] h-[1024px] relative bg-white bg-opacity-25">
+            <div className="left-[199px] top-[81px] absolute flex-col justify-center items-start gap-16 inline-flex">
+                
+
+                <div className="w-[703px] h-[196px] relative">
+                    <div className="left-[28px] top-0 absolute justify-center items-center gap-[13px] inline-flex">
+                        <div className="self-stretch justify-center items-center gap-[13px] flex">
+                            <img className="w-[70px] h-[70px] rounded-[26px]" src={"images/perfil.png"} />
+                            <div className="flex-col justify-center items-start inline-flex">
+                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
+                                    agata august</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    @august_agat</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    2 dias atrás</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-[703px] h-[120px] left-0 top-[76px] absolute">
+                        <div
+                            className="h-[114px] py-[22px] left-0 top-[24px] absolute bg-white rounded-[26px] flex-col justify-center items-center gap-2.5 inline-flex">
+                            <div
+                                className="w-[639px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Descobrir, viajar, inovar, mudar o mundo... Se não por nós por quem? Invista em si
+                                mesma, o autoconhecimento é algo que irá mudar a forma como você encherga o mundo ao seu
+                                redor</div>
+                            <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
+                                <div className="justify-center items-center gap-2.5 flex">
+                                    <div className="w-6 h-6 relative"></div>
+                                    <div
+                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                        3</div>
+                                </div>
+                                <div className="justify-center items-center gap-2.5 flex">
+                                    <div className="w-6 h-6 relative"></div>
+                                    <div
+                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                        75</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[703px] h-[196px] relative">
+                    <div className="left-[28px] top-0 absolute justify-center items-center gap-[13px] inline-flex">
+                        <div className="self-stretch justify-center items-center gap-[13px] flex">
+                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                            <div className="flex-col justify-center items-start inline-flex">
+                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
+                                    diana kepper</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    @keep_dian</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    4 dias atrás</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-[703px] h-[120px] left-0 top-[76px] absolute">
+                        <div
+                            className="h-24 py-[22px] left-0 top-[24px] absolute bg-white rounded-[26px] flex-col justify-center items-center gap-2.5 inline-flex">
+                            <div
+                                className="w-[639px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Hoje fiz uma viagem incrível para as bahamas. É incrível o quão fácil é viajar quando se
+                                acumula milhas</div>
+                            <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
+                                <div className="justify-center items-center gap-2.5 flex">
+                                    <div className="w-6 h-6 relative"></div>
+                                    <div
+                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                        3</div>
+                                </div>
+                                <div className="justify-center items-center gap-2.5 flex">
+                                    <div className="w-6 h-6 relative"></div>
+                                    <div
+                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                        75</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[703px] h-[196px] relative">
+                    <div className="left-[28px] top-0 absolute justify-center items-center gap-[13px] inline-flex">
+                        <Image alt="Perfil" src={"/images/perfil.png"} height={80} width={80} />
+                        <div className="flex-col justify-center items-start inline-flex">
+                            <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
+                                Smith ( você )</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                @hannah_super</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Ontem</div>
+                        </div>
+                    </div>
+                    <div className="w-[703px] h-[120px] left-0 top-[76px] absolute">
+                        <div
+                            className="h-24 py-[22px] left-0 top-[24px] absolute bg-white rounded-[26px] flex-col justify-center items-center gap-2.5 inline-flex">
+                            <div
+                                className="w-[639px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Hoje fiz uma viagem incrível para as bahamas. É incrível o quão fácil é viajar quando se
+                                acumula milhas</div>
+                            <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
+                                <div className="justify-center items-center gap-2.5 flex">
+                                    <div className="w-6 h-6 relative"></div>
+                                    <div
+                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                        3</div>
+                                </div>
+                                <div className="justify-center items-center gap-2.5 flex">
+                                    <div className="w-6 h-6 relative"></div>
+                                    <div
+                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                        75</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                className="px-12 pt-2 pb-3 left-[653px] top-[26px] absolute bg-zinc-800 bg-opacity-40 rounded-[9px] justify-center items-center inline-flex">
+                
+                <div className="text-white text-base font-normal font-['Be Vietnam'] leading-[18px]">Feed</div>
+            </div>
+
+            <div className="left-[36px] top-[429px] absolute flex-col justify-start items-start gap-[5px] inline-flex">
+                <button
+                    className="px-7 pt-2 pb-3 bg-white rounded-[9px] shadow flex-col justify-center items-center gap-[3px] flex group bg-cover group-hover:bg-blue-400 group-active:bg-blue-400 ">
+                    <img className="w-[30px] h-[30px]" src={"/icons/feed.svg"} />
+                    <div className="text-blue-400 text-[10px] font-normal font-['Be Vietnam'] leading-[18px]">Feed</div>
+                </button>
+
+                <button
+                    className="px-7 pt-2 pb-3 bg-white rounded-[9px] backdrop-blur-sm flex-col justify-center items-center gap-[3px] flex group">
+                    <img className="w-[30px] h-[30px]" src={"/icons/criar.svg"} />
+                    <div className="text-blue-400 text-xs font-normal font-['Be Vietnam'] leading-[18px]">Criar</div>
+                </button>
+
+                <button
+                    className="px-7 pt-2 pb-3 bg-white rounded-[9px] backdrop-blur-sm flex-col justify-center items-center gap-[3px] flex group">
+                    <img className="w-[30px] h-[30px]" src={"/icons/perfil.svg"} />
+                    <div className="text-blue-400 text-xs font-normal font-['Be Vietnam'] leading-[18px]">Perfil</div>
+                </button>
+            </div>
+
+            <div className="w-[357px] h-[809px] left-[1020px] top-[157px] absolute">
+                <div className="w-[357px] h-[804px] left-0 top-0 absolute">
+                    <div className="w-[357px] h-[804px] left-0 top-0 absolute bg-zinc-300"></div>
+                    <div
+                        className="w-[216px] h-[38px] px-12 pt-2 pb-3 left-[64px] top-[36px] absolute bg-zinc-800 bg-opacity-40 rounded-[9px] justify-center items-center inline-flex">
+                        <div className="text-white text-base font-normal font-['Be Vietnam'] leading-[18px]">
+                            Recomendados</div>
+                    </div>
+                </div>
+
+                <div
+                    className="left-[41px] top-[110px] absolute flex-col justify-center items-start gap-[49px] inline-flex">
+
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                        <div className="flex-col justify-center items-start inline-flex">
+                            <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
+                                Smith ( você )</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                @hannah_super</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Ontem</div>
+                        </div>
+                    </div>
+
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <div className="self-stretch justify-center items-center gap-[13px] flex">
+                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                            <div className="flex-col justify-center items-start inline-flex">
+                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
+                                    agata august</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    @august_agat</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    2 dias atrás</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                        <div className="flex-col justify-center items-start inline-flex">
+                            <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
+                                Smith ( você )</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                @hannah_super</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Ontem</div>
+                        </div>
+                    </div>
+
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <div className="self-stretch justify-center items-center gap-[13px] flex">
+                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                            <div className="flex-col justify-center items-start inline-flex">
+                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
+                                    agata august</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    @august_agat</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    2 dias atrás</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </main>
 </>
 );
