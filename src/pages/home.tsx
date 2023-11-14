@@ -17,7 +17,7 @@ return (
 
         <div className="w-[1440px] h-[1024px] relative bg-white bg-opacity-25">
             <div className="left-[199px] top-[81px] absolute flex-col justify-center items-start gap-16 inline-flex">
-                
+
 
                 <div className="w-[703px] h-[196px] relative">
                     <div className="left-[28px] top-0 absolute justify-center items-center gap-[13px] inline-flex">
@@ -44,103 +44,42 @@ return (
                                 mesma, o autoconhecimento é algo que irá mudar a forma como você encherga o mundo ao seu
                                 redor</div>
                             <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
-                                <div className="justify-center items-center gap-2.5 flex">
-                                    <div className="w-6 h-6 relative"></div>
-                                    <div
-                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                        3</div>
+                            <div className="flex items-center gap-2.5">
+                                    <div className="w-6 h-6 relative">
+                                        
+                                    </div>
+                                    <div className="flex items-center gap-2.5">
+                                        <img className="w-5 h-5 rounded-full" src={"icons/like.svg"}
+                                            alt="Like" />
+                                        <div
+                                            className="text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                            3
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="justify-center items-center gap-2.5 flex">
-                                    <div className="w-6 h-6 relative"></div>
-                                    <div
-                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                        75</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-[703px] h-[196px] relative">
-                    <div className="left-[28px] top-0 absolute justify-center items-center gap-[13px] inline-flex">
-                        <div className="self-stretch justify-center items-center gap-[13px] flex">
-                        <img className="w-[70px] h-[70px] rounded-[26px]" src={"images/perfil.png"} />
-                            <div className="flex-col justify-center items-start inline-flex">
-                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
-                                    diana kepper</div>
-                                <div
-                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                    @keep_dian</div>
-                                <div
-                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                    4 dias atrás</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w-[703px] h-[120px] left-0 top-[76px] absolute">
-                        <div
-                            className="h-24 py-[22px] left-0 top-[24px] absolute bg-white rounded-[26px] flex-col justify-center items-center gap-2.5 inline-flex">
-                            <div
-                                className="w-[639px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                Hoje fiz uma viagem incrível para as bahamas. É incrível o quão fácil é viajar quando se
-                                acumula milhas</div>
-                            <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
-                                <div className="justify-center items-center gap-2.5 flex">
-                                    <div className="w-6 h-6 relative"></div>
-                                    <div
-                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                        3</div>
-                                </div>
-                                <div className="justify-center items-center gap-2.5 flex">
-                                    <div className="w-6 h-6 relative"></div>
-                                    <div
-                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                        75</div>
+                                <div className="flex items-center gap-2.5">
+                                    <div className="w-6 h-6 relative">
+                                        
+                                    </div>
+                                    <div className="flex items-center gap-2.5">
+                                        <img className="w-5 h-5 rounded-full" src={"icons/comentario.svg"}
+                                            alt="Comentário" />
+                                        <div
+                                            className="text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                            75
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="w-[703px] h-[196px] relative">
-                    <div className="left-[28px] top-0 absolute justify-center items-center gap-[13px] inline-flex">
-                    <img className="w-[70px] h-[70px] rounded-[26px]" src={"images/perfil.png"} />
-                        <div className="flex-col justify-center items-start inline-flex">
-                            <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
-                                Smith ( você )</div>
-                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                @hannah_super</div>
-                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                Ontem</div>
-                        </div>
-                    </div>
-                    <div className="w-[703px] h-[120px] left-0 top-[76px] absolute">
-                        <div
-                            className="h-24 py-[22px] left-0 top-[24px] absolute bg-white rounded-[26px] flex-col justify-center items-center gap-2.5 inline-flex">
-                            <div
-                                className="w-[639px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                Hoje fiz uma viagem incrível para as bahamas. É incrível o quão fácil é viajar quando se
-                                acumula milhas</div>
-                            <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
-                                <div className="justify-center items-center gap-2.5 flex">
-                                    <div className="w-6 h-6 relative"></div>
-                                    <div
-                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                        3</div>
-                                </div>
-                                <div className="justify-center items-center gap-2.5 flex">
-                                    <div className="w-6 h-6 relative"></div>
-                                    <div
-                                        className="w-[18px] text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                        75</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <div
                 className="px-12 pt-2 pb-3 left-[653px] top-[26px] absolute bg-zinc-800 bg-opacity-40 rounded-[9px] justify-center items-center inline-flex">
-                
+
                 <div className="text-white text-base font-normal font-['Be Vietnam'] leading-[18px]">Feed</div>
             </div>
 
@@ -232,7 +171,7 @@ return (
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
