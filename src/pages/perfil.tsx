@@ -17,19 +17,18 @@ return (
         <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main className="bg-main flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat">
+    <main className="mx-auto my-auto">
 
         <div className="w-[390px] h-[844px] relative bg-neutral-700">
             <div className="w-[428px] h-[656px] left-0 top-0 absolute">
                 <div className="w-[428px] h-[656px] left-0 top-0 absolute bg-gradient-to-b from-stone-300 to-stone-300">
                 </div>
-                <img className="w-[449px] h-[845px] left-[-6px] top-[-189px] absolute"
-                    src={"/images/bg1.png"} />
+                
             </div>
             <div className="w-[390px] h-[586px] left-0 top-0 absolute">
                 <div className="w-[390px] h-[586px] left-0 top-0 absolute bg-gradient-to-b from-stone-300 to-stone-300">
                 </div>
-                <img className="w-[409.14px] h-[754.83px] left-[-5.47px] top-[-168.83px] absolute"
+                <img className="w-[409.14px] h-[656px] absolute"
                     src={"/images/bg2.png"} />
             </div>
             <div
@@ -41,7 +40,7 @@ return (
             </div>
             <div className="w-[279px] h-[68.02px] left-[20px] top-[506px] absolute">
                 <div className="left-0 top-0 absolute text-white text-[38px] font-bold font-['Be Vietnam'] uppercase">
-                    Hannah Smith</div>
+                    Hannah</div>
                 <div className="left-0 top-[50.02px] absolute text-zinc-500 text-base font-normal font-['Be Vietnam'] leading-[18px]">
                     @hannah_super</div>
             </div>
@@ -63,18 +62,20 @@ return (
                 </div>
                 <div className="justify-start items-start gap-[29px] inline-flex">
                     <div className="justify-start items-start gap-1.5 flex">
-                        <div className="w-[38px] h-[38px] relative">
+                        <button className="w-[38px] h-[38px] relative">
+                            
                             <div
                                 className="w-[38px] h-[38px] left-0 top-0 absolute bg-zinc-500 bg-opacity-0 rounded-[9px] border border-zinc-500 backdrop-blur-[11px]">
+                             <img className="w-10.5 h-10.5  absolute"
+                                src={"icons/send.svg"}/>       
                             </div>
-                            <img className="w-3.5 h-2.5 left-[12px] top-[14px] absolute"
-                                src="https://via.placeholder.com/14x10" />
-                        </div>
-                        <div
+                            
+                        </button>
+                        <button
                             className="h-[38px] px-[46px] pt-2 pb-3 bg-neutral-700 rounded-[9px] border border-blue-400 justify-center items-center flex">
                             <div className="text-blue-400 text-base font-semibold font-['Be Vietnam'] leading-[18px]">+
                                 Seguir</div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
