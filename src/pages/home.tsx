@@ -1,10 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
+import React, { useState } from 'react';
 import { api } from "~/utils/api";
 
 
+
 export default function Home() {
+
 return (
+
 <>
 
     <Head>
@@ -15,7 +19,7 @@ return (
 
     <main className="bg-main flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat">
 
-        <div className="w-[1440px] h-[1024px] relative bg-white bg-opacity-25">
+        <div className="w-[1340px] h-[950px] relative bg-white bg-opacity-25">
             <div className="left-[199px] top-[81px] absolute flex-col justify-center items-start gap-16 inline-flex">
 
 
@@ -44,13 +48,12 @@ return (
                                 mesma, o autoconhecimento é algo que irá mudar a forma como você encherga o mundo ao seu
                                 redor</div>
                             <div className="w-[645px] pr-3.5 justify-end items-center gap-2.5 inline-flex">
-                            <div className="flex items-center gap-2.5">
+                                <div className="flex items-center gap-2.5">
                                     <div className="w-6 h-6 relative">
-                                        
+
                                     </div>
                                     <div className="flex items-center gap-2.5">
-                                        <img className="w-5 h-5 rounded-full" src={"icons/like.svg"}
-                                            alt="Like" />
+                                        <img className="w-5 h-5 rounded-full" src={"icons/like.svg"} alt="Like" />
                                         <div
                                             className="text-zinc-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
                                             3
@@ -59,7 +62,7 @@ return (
                                 </div>
                                 <div className="flex items-center gap-2.5">
                                     <div className="w-6 h-6 relative">
-                                        
+
                                     </div>
                                     <div className="flex items-center gap-2.5">
                                         <img className="w-5 h-5 rounded-full" src={"icons/comentario.svg"}
@@ -93,19 +96,21 @@ return (
                 <button
                     className="px-7 pt-2 pb-3 bg-white rounded-[9px] backdrop-blur-sm flex-col justify-center items-center gap-[3px] flex group">
                     <img className="w-[30px] h-[30px]" src={"/icons/criar.svg"} />
-                    <div className="text-blue-400 text-xs font-normal font-['Be Vietnam'] leading-[18px]">Criar</div>
+                    <div className="text-blue-400 text-xs font-normal font-['Be Vietnam'] leading-[18px]">Criar
+                    </div>
                 </button>
 
                 <button
                     className="px-7 pt-2 pb-3 bg-white rounded-[9px] backdrop-blur-sm flex-col justify-center items-center gap-[3px] flex group">
                     <img className="w-[30px] h-[30px]" src={"/icons/perfil.svg"} />
-                    <div className="text-blue-400 text-xs font-normal font-['Be Vietnam'] leading-[18px]">Perfil</div>
+                    <div className="text-blue-400 text-xs font-normal font-['Be Vietnam'] leading-[18px]">Perfil
+                    </div>
                 </button>
             </div>
 
-            <div className="w-[357px] h-[809px] left-[1020px] top-[157px] absolute">
-                <div className="w-[357px] h-[804px] left-0 top-0 absolute">
-                    <div className="w-[357px] h-[804px] left-0 top-0 absolute bg-zinc-300"></div>
+            <div className="w-[357px] h-[700px] left-[920px] top-[157px] absolute">
+                <div className="w-[357px] h-[700px] left-0 top-0 absolute">
+                    <div className="w-[357px] h-[700px] left-0 top-0 absolute bg-zinc-300"></div>
                     <div
                         className="w-[216px] h-[38px] px-12 pt-2 pb-3 left-[64px] top-[36px] absolute bg-zinc-800 bg-opacity-40 rounded-[9px] justify-center items-center inline-flex">
                         <div className="text-white text-base font-normal font-['Be Vietnam'] leading-[18px]">
@@ -117,7 +122,7 @@ return (
                     className="left-[41px] top-[110px] absolute flex-col justify-center items-start gap-[49px] inline-flex">
 
                     <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
-                        <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                        <img className="w-[70px] h-[70px] rounded-[26px]" src={"images/perfil.png"} />
                         <div className="flex-col justify-center items-start inline-flex">
                             <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
                                 Smith ( você )</div>
@@ -128,53 +133,12 @@ return (
                         </div>
                     </div>
 
-                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
-                        <div className="self-stretch justify-center items-center gap-[13px] flex">
-                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
-                            <div className="flex-col justify-center items-start inline-flex">
-                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
-                                    agata august</div>
-                                <div
-                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                    @august_agat</div>
-                                <div
-                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                    2 dias atrás</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
-                        <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
-                        <div className="flex-col justify-center items-start inline-flex">
-                            <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
-                                Smith ( você )</div>
-                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                @hannah_super</div>
-                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                Ontem</div>
-                        </div>
-                    </div>
-
-                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
-                        <div className="self-stretch justify-center items-center gap-[13px] flex">
-                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
-                            <div className="flex-col justify-center items-start inline-flex">
-                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
-                                    agata august</div>
-                                <div
-                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                    @august_agat</div>
-                                <div
-                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
-                                    2 dias atrás</div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
         </div>
+
+
     </main>
 </>
 );
