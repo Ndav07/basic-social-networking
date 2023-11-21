@@ -122,7 +122,7 @@ return (
                     className="left-[41px] top-[110px] absolute flex-col justify-center items-start gap-[49px] inline-flex">
 
                     <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
-                        <img className="w-[70px] h-[70px] rounded-[26px]" src={"images/perfil.png"} />
+                        <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
                         <div className="flex-col justify-center items-start inline-flex">
                             <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
                                 Smith ( você )</div>
@@ -133,6 +133,49 @@ return (
                         </div>
                     </div>
 
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <div className="self-stretch justify-center items-center gap-[13px] flex">
+                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                            <div className="flex-col justify-center items-start inline-flex">
+                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
+                                    agata august</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    @august_agat</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    2 dias atrás</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                        <div className="flex-col justify-center items-start inline-flex">
+                            <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">Hannah
+                                Smith ( você )</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                @hannah_super</div>
+                            <div className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                Ontem</div>
+                        </div>
+                    </div>
+
+                    <div className="self-stretch justify-center items-center gap-[13px] inline-flex">
+                        <div className="self-stretch justify-center items-center gap-[13px] flex">
+                            <img className="w-[70px] h-[70px] rounded-[26px]" src="https://via.placeholder.com/70x70" />
+                            <div className="flex-col justify-center items-start inline-flex">
+                                <div className="text-neutral-800 text-base font-bold font-['Be Vietnam'] uppercase">
+                                    agata august</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    @august_agat</div>
+                                <div
+                                    className="text-neutral-800 text-xs font-normal font-['Be Vietnam'] leading-[18px]">
+                                    2 dias atrás</div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
