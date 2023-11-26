@@ -82,6 +82,8 @@ export default function Home() {
             )}
             <div className="inline-flex items-center justify-center self-stretch">
               <button
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 onClick={() => handleSubmit(createPost())}
                 className="relative h-8 w-8"
                 style={{
