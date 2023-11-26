@@ -1,8 +1,68 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { api } from "~/utils/api";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
+import { useState } from "react";
+import Swal from "sweetalert2";
+
+const REQUIRED_MESSAGE = "Campo obrigatório!";
+
+const SchemaValidation = z.object({
+  email: z.string().email("Email inválido").min(1, REQUIRED_MESSAGE),
+  password: z.string().min(1, REQUIRED_MESSAGE),
+});
+
+type FormData = z.infer<typeof SchemaValidation>;
 
 export default function Home() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onBlur",
+    resolver: zodResolver(SchemaValidation),
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = async () => {
+    setIsLoading(true);
+    const result = await signIn("credentials", {
+      redirect: false,
+      email: watch("email"),
+      password: watch("password"),
+    });
+
+    if (!result?.error) {
+      // Exemplo: router.push('/dashboard');
+    } else {
+      // Trate o erro de login
+      await Swal.fire({
+        title: "Oops...",
+        text: "Email ou senha inválidos!",
+        icon: "error",
+      });
+      console.error("Erro de login:", result.error);
+    }
+
+    setIsLoading(false);
+  };
+
+  async function onSubmit() {
+    const data = watch();
+    console.log(data);
+    await handleLogin();
+  }
+
   return (
     <>
       <Head>
@@ -11,7 +71,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-main flex h-screen w-screen items-center justify-center bg-cover bg-no-repeat">
+      <main className="flex h-screen w-screen items-center justify-center bg-main bg-cover bg-no-repeat">
         <form className="flex flex-col items-center justify-center gap-12 rounded-xl px-8 py-6 lg:bg-white lg:px-24 lg:py-12">
           <div className="items-center justify-center rounded-full bg-white object-cover p-8">
             <Image
@@ -22,19 +82,29 @@ export default function Home() {
             />
           </div>
           <input
+            {...register("email")}
             type="text"
             placeholder="Digite o seu email"
             className="box-shadow-white flex w-full flex-row items-center justify-between rounded-3xl bg-white px-4 py-6"
           />
 
           <input
+            {...register("password")}
             type="password"
             placeholder="Digite a sua senha"
             className="box-shadow-white flex w-full flex-row items-center justify-between rounded-3xl bg-white px-4 py-6"
           />
 
-          <button className="box-shadow-white w-full items-center justify-center rounded-2xl bg-white py-3 ">
-            Entrar
+          <button
+            onClick={() => handleSubmit(onSubmit())}
+            type="button"
+            className="box-shadow-white w-full items-center justify-center rounded-2xl bg-white py-3 "
+          >
+            {isLoading ? (
+              <div className="flex animate-spin rounded-t-full border-blue-500"></div>
+            ) : (
+              <p>Entrar</p>
+            )}
           </button>
 
           <p className="text-white">
