@@ -1,7 +1,15 @@
+import { Logout } from "iconsax-react";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
 
 export default function ProfileScreen() {
+  const router = useRouter();
+  async function exit() {
+    signOut;
+    await router.push("/");
+  }
   return (
     <main className="mx-auto my-auto">
       <div className="relative h-[844px] w-[390px] bg-neutral-700">
@@ -69,6 +77,18 @@ export default function ProfileScreen() {
                 <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-blue-400">
                   + Seguir
                 </div>
+              </button>
+
+              <button
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                onClick={() => exit()}
+                className="flex h-[38px] flex-row items-center justify-center rounded-[9px] border border-blue-400 bg-neutral-700 px-[46px] pb-3 pt-2"
+              >
+                <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-blue-400">
+                  Sair
+                </div>
+                <Logout className="text-blue-400" size={24} />
               </button>
             </div>
           </div>
