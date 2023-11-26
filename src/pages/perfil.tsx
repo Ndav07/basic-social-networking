@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Logout } from "iconsax-react";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
@@ -80,8 +81,6 @@ export default function ProfileScreen() {
               </button>
 
               <button
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 onClick={() => exit()}
                 className="flex h-[38px] flex-row items-center justify-center rounded-[9px] border border-blue-400 bg-neutral-700 px-[46px] pb-3 pt-2"
               >
