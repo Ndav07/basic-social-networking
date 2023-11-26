@@ -7,15 +7,12 @@ export default function BottomTabsNavigation() {
 
   async function profileNavigate() {
     await router.push("/perfil");
-    console.log("clicou");
   }
   async function createNavigate() {
     await router.push("/create");
-    console.log("clicou");
   }
   async function feedNavigate() {
     await router.push("/feed");
-    console.log("clicou");
   }
   return (
     <div className="absolute left-0 top-[739px] h-[105px] w-[390px]">

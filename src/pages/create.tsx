@@ -1,7 +1,49 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { z } from "zod";
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
+import { api } from "~/utils/api";
+
+const REQUIRED_MESSAGE = "Postagens devem conter no mínimo 3 caracteres!";
+
+const SchemaValidation = z.object({
+  postMessage: z.string().min(3, REQUIRED_MESSAGE),
+});
+
+type FormData = z.infer<typeof SchemaValidation>;
 
 export default function Home() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
+    defaultValues: {
+      postMessage: "",
+    },
+    mode: "onBlur",
+    resolver: zodResolver(SchemaValidation),
+  });
+
+  const user = api.users.me.useQuery();
+  const post = api.posts.create.useMutation();
+
+  async function createPost() {
+    await post.mutateAsync({
+      text: watch("postMessage"),
+    });
+    await Swal.fire({
+      title: "Aee!",
+      text: "Seu post foi realizado com sucesso!",
+      icon: "success",
+    });
+    reset();
+  }
+
   return (
     <main className="mx-auto my-auto">
       <div
@@ -31,11 +73,16 @@ export default function Home() {
         <div className="absolute left-[11px] top-[160px] h-[156.05px] w-[368px]">
           <div className="absolute inline-flex h-[206px]  w-[368px] flex-col items-center justify-center gap-3.5 rounded-[26px] bg-white py-[22px]">
             <textarea
+              {...register("postMessage")}
               className="font-['Be Vietnam'] h-full w-full resize-none px-2 py-2 text-xs font-normal leading-[18px] text-zinc-800 text-opacity-70"
               placeholder="Digite aqui o que você deseja publicar"
             />
+            {errors?.postMessage?.message && (
+              <p>{errors?.postMessage?.message}</p>
+            )}
             <div className="inline-flex items-center justify-center self-stretch">
               <button
+                onClick={() => handleSubmit(createPost())}
                 className="relative h-8 w-8"
                 style={{
                   backgroundImage: 'url("icons/coment.svg")',
@@ -56,10 +103,10 @@ export default function Home() {
           />
           <div className="inline-flex flex-col items-start justify-center">
             <div className="font-['Be Vietnam'] text-base font-bold uppercase text-white">
-              Hannah Smith ( Você )
+              {user.data?.name}( Você )
             </div>
             <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-zinc-500">
-              @hannah_super
+              @{user.data?.email}
             </div>
           </div>
         </div>
