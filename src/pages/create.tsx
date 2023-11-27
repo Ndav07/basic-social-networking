@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { z } from "zod";
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
+import TabsLayout from "~/layout/Tabs";
 import { api } from "~/utils/api";
 
 const REQUIRED_MESSAGE = "Postagens devem conter no mínimo 3 caracteres!";
@@ -45,7 +46,7 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto my-auto">
+    <TabsLayout>
       <div
         className="relative h-[844px] w-[390px] bg-neutral-700"
         style={{
@@ -114,6 +115,6 @@ export default function Home() {
         </div>
         <BottomTabsNavigation />
       </div>
-    </main>
+    </TabsLayout>
   );
 }

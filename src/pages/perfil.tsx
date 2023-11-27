@@ -4,15 +4,18 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
+import TabsLayout from "~/layout/Tabs";
+import { api } from "~/utils/api";
 
 export default function ProfileScreen() {
   const router = useRouter();
+  const user = api.users.me.useQuery();
   async function exit() {
     signOut;
     await router.push("/");
   }
   return (
-    <main className="mx-auto my-auto">
+    <TabsLayout>
       <div className="relative h-[844px] w-[390px] bg-neutral-700">
         <div className="absolute left-0 top-0 h-[656px] w-[428px]">
           <div className="bg-gradient-to-b absolute left-0 top-0 h-[656px] w-[428px] from-stone-300 to-stone-300"></div>
@@ -36,10 +39,10 @@ export default function ProfileScreen() {
         </div>
         <div className="absolute left-[20px] top-[506px] h-[68.02px] w-[279px]">
           <div className="font-['Be Vietnam'] absolute left-0 top-0 text-[38px] font-bold uppercase text-white">
-            Hannah
+            {user.data?.name}
           </div>
           <div className="font-['Be Vietnam'] absolute left-0 top-[50.02px] text-base font-normal leading-[18px] text-zinc-500">
-            @hannah_super
+            @{user.data?.email}
           </div>
         </div>
         <div className="absolute left-[20px] top-[608px] inline-flex flex-col items-start justify-center gap-[22px]">
@@ -94,6 +97,6 @@ export default function ProfileScreen() {
         </div>
         <BottomTabsNavigation />
       </div>
-    </main>
+    </TabsLayout>
   );
 }

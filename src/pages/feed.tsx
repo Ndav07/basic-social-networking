@@ -1,12 +1,13 @@
 import Image from "next/image";
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
+import TabsLayout from "~/layout/Tabs";
 import { api } from "~/utils/api";
 
 export default function Home() {
   const user = api.users.me.useQuery();
   const posts = api.users.myPosts.useQuery();
   return (
-    <main className="mx-auto my-auto">
+    <TabsLayout>
       <div
         className="relative h-[844px] w-[390px] overflow-y-hidden bg-neutral-700"
         style={{
@@ -15,7 +16,7 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute left-0 top-0 inline-flex w-[390px] items-center justify-center bg-neutral-300 bg-opacity-50 py-3.5 pl-[129px] pr-32 backdrop-blur-sm">
+        <div className="absolute left-0 top-0 z-20 inline-flex w-[390px] items-center justify-center bg-neutral-300 bg-opacity-50 py-3.5 pl-[129px] pr-32 backdrop-blur-sm">
           <div className="inline-flex items-center justify-center rounded-[9px] bg-zinc-800 bg-opacity-40 px-12 pb-3 pt-2">
             <div className="font-['Be Vietnam'] text-base font-normal leading-[18px] text-white">
               Feed
@@ -91,6 +92,6 @@ export default function Home() {
 
         <BottomTabsNavigation />
       </div>
-    </main>
+    </TabsLayout>
   );
 }
