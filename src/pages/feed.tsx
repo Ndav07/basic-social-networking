@@ -24,7 +24,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute left-[11px] inline-flex max-h-screen w-[368px] flex-col items-center justify-center gap-3 overflow-y-auto border pt-[90px]">
+        <div className="absolute left-[11px] inline-flex max-h-screen w-[368px] flex-col items-center justify-center gap-3 overflow-y-auto pt-[90px]">
           {posts.data?.map((post) => (
             <div key={post.id} className="relative h-[232.25px] w-[368px]">
               <div className="absolute top-0  inline-flex h-[70px] w-[274px] items-center justify-center gap-[13px]">
