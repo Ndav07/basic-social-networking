@@ -30,6 +30,7 @@ export default function Home() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
   const handleLogin = async () => {
     setIsLoading(true);
     const result = await signIn("credentials", {
@@ -46,7 +47,6 @@ export default function Home() {
       });
       void router.push("/feed");
     } else {
-      // Trate o erro de login
       await Swal.fire({
         title: "Oops...",
         text: "Email ou senha inválidos!",
@@ -96,9 +96,8 @@ export default function Home() {
 
         <button
           type="button"
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          onClick={() => handleSubmit(onSubmit())}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onClick={handleSubmit(onSubmit)}
           className="box-shadow-white flex w-full items-center justify-center rounded-2xl bg-white py-3"
         >
           {isLoading ? (
