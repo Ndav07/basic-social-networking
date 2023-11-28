@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, UserAdd } from "iconsax-react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -110,12 +111,14 @@ export default function UserRegister() {
           )}
         </button>
 
-        <p>
-          Já possui conta?{" "}
-          <a href="#" className="underline">
-            Entre agora
-          </a>
-        </p>
+        <Link href={"/"}>
+          <p className="text-white">
+            Já possui conta?{" "}
+            <a href="#" className="underline">
+              Entre agora
+            </a>
+          </p>
+        </Link>
       </form>
     </main>
   );

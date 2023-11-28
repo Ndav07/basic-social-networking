@@ -41,11 +41,6 @@ export default function Login() {
     });
 
     if (!result?.error) {
-      await Swal.fire({
-        title: "Aeee!",
-        text: "Login realizado com sucesso!",
-        icon: "success",
-      });
       void router.push("/feed");
     } else {
       await Swal.fire({

@@ -1,7 +1,8 @@
-import { Logout } from "iconsax-react";
+import Avatar from "boring-avatars";
+import { Add, DirectInbox, Logout } from "iconsax-react";
 import { signOut } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import Header from "~/components/Header";
 import TabsLayout from "~/layout/Tabs";
 import { api } from "~/utils/api";
 
@@ -14,80 +15,70 @@ export default function ProfileScreen() {
   }
   return (
     <TabsLayout>
-      <div className="absolute left-0 top-0 h-[656px] w-[428px]">
-        <div className="bg-gradient-to-b absolute left-0 top-0 h-[656px] w-[428px] from-stone-300 to-stone-300"></div>
-      </div>
-      <div className="absolute left-0 top-0 h-[586px] w-[390px]">
-        <div className="bg-gradient-to-b absolute left-0 top-0 h-[586px] w-[390px] from-stone-300 to-stone-300"></div>
-        <Image
-          width={409}
-          height={656}
-          alt="Background"
-          className="absolute h-[656px] w-[409.14px]"
-          src={"/images/bg2.png"}
+      <Header title="Meu Perfil" />
+      <div className="flex h-full min-h-[100vh] w-screen flex-col items-center justify-start">
+        <Avatar
+          name={`${user.data?.name.split(" ")[0]} ${user.data?.name.split(
+            " ",
+          )[1]}`}
+          variant="beam"
+          square={true}
+          size="100%"
+          colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
         />
-      </div>
-      <div className="absolute left-0 top-0 inline-flex w-[390px] items-center justify-end py-3.5 pl-[129px] pr-[125px] backdrop-blur-sm">
-        <div className="inline-flex items-center justify-center rounded-[9px] bg-zinc-800 bg-opacity-40 px-12 pb-3 pt-2">
-          <div className="font-['Be Vietnam'] text-base font-normal leading-[18px] text-white">
-            Perfil
+
+        <div className="my-4 flex w-4/5 flex-col gap-3">
+          <div className="font-['Be Vietnam'] flex text-2xl font-bold uppercase text-white">
+            {user.data?.name}
           </div>
-        </div>
-      </div>
-      <div className="absolute left-[20px] top-[506px] h-[68.02px] w-[279px]">
-        <div className="font-['Be Vietnam'] absolute left-0 top-0 text-[38px] font-bold uppercase text-white">
-          {user.data?.name}
-        </div>
-        <div className="font-['Be Vietnam'] absolute left-0 top-[50.02px] text-base font-normal leading-[18px] text-zinc-500">
-          @{user.data?.email}
-        </div>
-      </div>
-      <div className="absolute left-[20px] top-[608px] inline-flex flex-col items-start justify-center gap-[22px]">
-        <div className="inline-flex items-start justify-start gap-[19px]">
-          <div className="inline-flex flex-col items-start justify-start gap-0.5">
-            <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-white">
-              787
-            </div>
-            <div className="font-['Be Vietnam'] text-[13px] font-normal leading-[18px] text-zinc-500">
-              Seguidores
-            </div>
+
+          <div className="font-['Be Vietnam'] -[50.02px] flex text-base font-normal leading-[18px] text-white">
+            {user.data?.email}
           </div>
-          <div className="inline-flex flex-col items-start justify-start gap-0.5">
-            <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-white">
-              308
-            </div>
-            <div className="font-['Be Vietnam'] text-[13px] font-normal leading-[18px] text-zinc-500">
-              Seguindo
-            </div>
-          </div>
-        </div>
-        <div className="inline-flex items-start justify-start gap-[29px]">
-          <div className="flex items-start justify-start gap-1.5">
-            <button className="relative h-[38px] w-[38px]">
-              <div className="absolute left-0 top-0 h-[38px] w-[38px] rounded-[9px] border border-zinc-500 bg-zinc-500 bg-opacity-0 backdrop-blur-[11px]">
-                <Image
-                  width={38}
-                  height={38}
-                  alt="Ícone de navegação"
-                  className="w-10.5 h-10.5 absolute"
-                  src={"icons/send.svg"}
-                />
+
+          <div className="flex flex-row items-start justify-start gap-12">
+            <div className="flex flex-col items-center justify-center">
+              <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-white">
+                {user.data?._count?.followers}
               </div>
-            </button>
-            <button className="flex h-[38px] items-center justify-center rounded-[9px] border border-blue-400 bg-neutral-700 px-[46px] pb-3 pt-2">
-              <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-blue-400">
-                + Seguir
+              <div className="font-['Be Vietnam'] text-[13px] font-normal leading-[18px] text-white">
+                Seguidores
               </div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-white">
+                {user.data?._count?.following}
+              </div>
+              <div className="font-['Be Vietnam'] text-[13px] font-normal leading-[18px] text-white">
+                Seguindo
+              </div>
+            </div>
+            <a
+              href={`mailto:${user.data?.email}`}
+              className="relative h-[38px] w-[38px]"
+            >
+              <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[9px] border border-zinc-500 bg-zinc-500 bg-opacity-0 backdrop-blur-[11px]">
+                <DirectInbox size={18} className="text-white" />
+              </div>
+            </a>
+          </div>
+
+          <div className="flex flex-row items-start justify-start gap-2">
+            <button className="flex flex-row items-center justify-center gap-2 rounded-xl border border-blue-400 bg-neutral-700 px-8 py-2">
+              <p className="font-['Be Vietnam'] text-base font-semibold text-white">
+                Seguir
+              </p>
+              <Add size={18} className="text-white" />
             </button>
 
             <button
               onClick={() => void exit()}
-              className="flex h-[38px] flex-row items-center justify-center rounded-[9px] border border-blue-400 bg-neutral-700 px-[46px] pb-3 pt-2"
+              className="flex flex-row items-center justify-center gap-2 rounded-xl border border-blue-400 bg-neutral-700 px-8 py-2"
             >
-              <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-blue-400">
+              <div className="font-['Be Vietnam'] text-base font-semibold text-white">
                 Sair
               </div>
-              <Logout className="text-blue-400" size={24} />
+              <Logout className="text-white" size={24} />
             </button>
           </div>
         </div>
