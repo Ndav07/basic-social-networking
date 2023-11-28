@@ -115,10 +115,7 @@ export default function UserRegister() {
 
         <Link href={"/"}>
           <p className="text-white">
-            Já possui conta?{" "}
-            <a href="#" className="underline">
-              Entre agora
-            </a>
+            Já possui conta? <span className="underline">Entre agora</span>
           </p>
         </Link>
       </form>

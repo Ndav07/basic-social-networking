@@ -107,10 +107,7 @@ export default function Login() {
 
         <Link href={"/register"}>
           <p className="text-white">
-            Não possui conta?{" "}
-            <a href="#" className="underline">
-              Registre-se
-            </a>
+            Não possui conta? <span className="underline">Registre-se</span>
           </p>
         </Link>
       </form>
