@@ -31,7 +31,7 @@ export default function UsersProfile() {
     }
   }
   return (
-    <div className="relative flex h-screen min-h-[650px] w-screen flex-col items-center justify-start overflow-y-auto bg-neutral-700">
+    <div className="relative flex h-full min-h-screen w-screen flex-col items-center justify-between overflow-y-auto bg-neutral-700 pb-20">
       <Header title="Perfil" />
 
       <div className="flex w-screen flex-col items-center justify-start">
@@ -57,7 +57,7 @@ export default function UsersProfile() {
           <div className="flex flex-row items-start justify-start gap-12">
             <div className="flex flex-col items-center justify-center">
               <div className="font-['Be Vietnam'] text-base font-semibold leading-[18px] text-white">
-                {/* {user.data?._count?.followers} */} 100
+                100
               </div>
               <div className="font-['Be Vietnam'] text-[13px] font-normal leading-[18px] text-white">
                 Seguidores
@@ -99,7 +99,7 @@ export default function UsersProfile() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 flex w-full items-center justify-center">
+      <div className="flex w-full items-center justify-center">
         <Link
           href={"/feed"}
           className="flex flex-row items-center justify-center gap-3 rounded-xl bg-white px-12 py-4"

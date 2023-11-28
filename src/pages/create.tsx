@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <TabsLayout title="Criar postagem">
-      <div className="flex h-full min-h-[70vh] w-4/5 flex-col items-center justify-start gap-4 pt-[85px]">
+      <div className="flex h-full min-h-[70vh] w-4/5 flex-col items-center justify-start gap-4 pt-[125px]">
         <div className="flex w-full items-center justify-start gap-[13px]">
           <Avatar
             name={`${user.data?.name.split(" ")[0]} ${user.data?.name.split(

@@ -1,5 +1,5 @@
 import Avatar from "boring-avatars";
-import { Add, DirectInbox, Logout } from "iconsax-react";
+import { DirectInbox, Logout } from "iconsax-react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import TabsLayout from "~/layout/Tabs";
@@ -62,12 +62,12 @@ export default function ProfileScreen() {
           </div>
 
           <div className="flex flex-row items-start justify-start gap-2">
-            <button className="flex flex-row items-center justify-center gap-2 rounded-xl border border-blue-400 bg-neutral-700 px-8 py-2">
+            {/* <button className="flex flex-row items-center justify-center gap-2 rounded-xl border border-blue-400 bg-neutral-700 px-8 py-2">
               <p className="font-['Be Vietnam'] text-base font-semibold text-white">
                 Seguir
               </p>
               <Add size={18} className="text-white" />
-            </button>
+            </button> */}
 
             <button
               onClick={() => void exit()}
