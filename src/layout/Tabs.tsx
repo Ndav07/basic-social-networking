@@ -1,14 +1,18 @@
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
+import Header from "~/components/Header";
 
 interface TabsLayoutProps {
+  title: string;
   children: React.ReactNode;
 }
 
-export default function TabsLayout({ children }: TabsLayoutProps) {
+export default function TabsLayout({ children, title }: TabsLayoutProps) {
   return (
-    <main className="relative flex min-h-screen w-screen flex-col">
+    <main className="relative flex min-h-screen w-screen flex-col items-center justify-start">
+      <Header title={title} />
+
       <div
-        className="relative flex min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden overflow-y-hidden bg-neutral-700"
+        className="relative flex h-screen w-screen flex-col items-center justify-start overflow-y-auto"
         style={{
           backgroundImage: 'url("images/bg1.png")',
           backgroundSize: "cover",
@@ -17,6 +21,7 @@ export default function TabsLayout({ children }: TabsLayoutProps) {
       >
         {children}
       </div>
+
       <BottomTabsNavigation />
     </main>
   );

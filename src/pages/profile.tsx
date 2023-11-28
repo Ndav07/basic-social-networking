@@ -2,7 +2,6 @@ import Avatar from "boring-avatars";
 import { Add, DirectInbox, Logout } from "iconsax-react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import Header from "~/components/Header";
 import TabsLayout from "~/layout/Tabs";
 import { api } from "~/utils/api";
 
@@ -14,9 +13,8 @@ export default function ProfileScreen() {
     await router.push("/");
   }
   return (
-    <TabsLayout>
-      <Header title="Meu Perfil" />
-      <div className="flex h-full min-h-[100vh] w-screen flex-col items-center justify-start">
+    <TabsLayout title="Meu Perfil">
+      <div className="flex h-full min-h-[calc(100vh+68px+82px)] w-screen flex-col items-center justify-start overflow-y-auto">
         <Avatar
           name={`${user.data?.name.split(" ")[0]} ${user.data?.name.split(
             " ",
@@ -27,7 +25,7 @@ export default function ProfileScreen() {
           colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
         />
 
-        <div className="my-4 flex w-4/5 flex-col gap-3">
+        <div className="flex h-full w-4/5 flex-col gap-3">
           <div className="font-['Be Vietnam'] flex text-2xl font-bold uppercase text-white">
             {user.data?.name}
           </div>

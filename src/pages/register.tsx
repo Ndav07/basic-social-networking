@@ -78,6 +78,7 @@ export default function UserRegister() {
           <input
             {...register("email")}
             type="text"
+            autoCapitalize="none"
             placeholder="Digite o seu email"
             className="text-black placeholder:text-gray-500"
           />
@@ -88,6 +89,7 @@ export default function UserRegister() {
             {...register("password")}
             type={showPassword ? "text" : "password"}
             placeholder="Digite a sua senha"
+            autoCapitalize="none"
             className="text-black placeholder:text-gray-500"
           />
           <button type="button" onClick={() => setShowPassword(!showPassword)}>

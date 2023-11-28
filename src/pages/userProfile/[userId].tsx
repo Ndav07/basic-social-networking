@@ -32,16 +32,10 @@ export default function UsersProfile() {
   }
   return (
     <main className="relative flex min-h-screen w-screen flex-col">
-      <div
-        className="relative flex min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden overflow-y-hidden bg-neutral-700"
-        style={{
-          backgroundImage: 'url("images/bg1.png")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="relative flex h-screen w-screen flex-col items-center justify-center overflow-y-auto bg-neutral-700">
         <Header title="Perfil" />
-        <div className="flex h-full min-h-[100vh] w-screen flex-col items-center justify-start">
+
+        <div className="flex h-[calc(100vh+68px+82px)] w-screen flex-col items-center justify-start overflow-y-auto">
           <Avatar
             name={`${user.data?.name.split(" ")[0]} ${user.data?.name.split(
               " ",

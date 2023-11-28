@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { z } from "zod";
-import Header from "~/components/Header";
 import TabsLayout from "~/layout/Tabs";
 import { api } from "~/utils/api";
 
@@ -60,10 +59,8 @@ export default function Home() {
   }
 
   return (
-    <TabsLayout>
-      <Header title="Criar postagem" />
-
-      <div className="flex h-full min-h-[70vh] w-4/5 flex-col items-center justify-start gap-4">
+    <TabsLayout title="Criar postagem">
+      <div className="flex h-full min-h-[70vh] w-4/5 flex-col items-center justify-start gap-4 pt-[85px]">
         <div className="flex w-full items-center justify-start gap-[13px]">
           <Avatar
             name={`${user.data?.name.split(" ")[0]} ${user.data?.name.split(

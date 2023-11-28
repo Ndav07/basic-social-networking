@@ -74,6 +74,7 @@ export default function Login() {
             {...register("email")}
             type="text"
             placeholder="Digite o seu email"
+            autoCapitalize="none"
             className="text-black placeholder:text-gray-500"
           />
         </div>
@@ -83,6 +84,7 @@ export default function Login() {
             {...register("password")}
             type={showPassword ? "text" : "password"}
             placeholder="Digite a sua senha"
+            autoCapitalize="none"
             className="text-black placeholder:text-gray-500"
           />
           <button type="button" onClick={() => setShowPassword(!showPassword)}>
