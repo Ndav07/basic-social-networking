@@ -35,7 +35,7 @@ export const usersRouter = createTRPCRouter({
 
   getById: protectedProcedure
     .input(z.object({ id: z.string().cuid2() }))
-    .mutation(async ({ ctx, input: { id } }) => {
+    .query(async ({ ctx, input: { id } }) => {
       const user = await ctx.prisma.user.findUnique({
         where: {
           id,

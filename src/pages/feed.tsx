@@ -2,11 +2,13 @@ import Image from "next/image";
 import BottomTabsNavigation from "~/components/BottomTabsNavigation";
 import TabsLayout from "~/layout/Tabs";
 import { api } from "~/utils/api";
+import Avatar from "boring-avatars";
 
 export default function Home() {
   const user = api.users.me.useQuery();
   const posts = api.users.myPosts.useQuery();
   const allPosts = api.posts.findAllPost.useQuery();
+
   return (
     <TabsLayout>
       <div
@@ -29,12 +31,16 @@ export default function Home() {
           {posts.data?.map((post) => (
             <div key={post.id} className="relative h-[232.25px] w-[368px]">
               <div className="absolute top-0  inline-flex h-[70px] w-[274px] items-center justify-center gap-[13px]">
-                <Image
-                  width={70}
-                  height={70}
-                  alt="Imagem de Perfil"
-                  className="h-[70px] w-[70px] rounded-[26px]"
-                  src={"/images/perfil.png"}
+                <Avatar
+                  name="Maria Mitchell"
+                  variant="marble"
+                  colors={[
+                    "#92A1C6",
+                    "#146A7C",
+                    "#F0AB3D",
+                    "#C271B4",
+                    "#C20D90",
+                  ]}
                 />
                 <div className="inline-flex flex-col items-start justify-center">
                   <div className="font-['Be Vietnam'] text-base font-bold uppercase text-white">
@@ -93,19 +99,23 @@ export default function Home() {
           {allPosts.data?.map((post) => (
             <div key={post.id} className="relative h-[232.25px] w-[368px]">
               <div className="absolute top-0  inline-flex h-[70px] w-[274px] items-center justify-center gap-[13px]">
-                <Image
-                  width={70}
-                  height={70}
-                  alt="Imagem de Perfil"
-                  className="h-[70px] w-[70px] rounded-[26px]"
-                  src={"/images/perfil.png"}
+                <Avatar
+                  name="Maria Mitchell"
+                  variant="marble"
+                  colors={[
+                    "#92A1C6",
+                    "#146A7C",
+                    "#F0AB3D",
+                    "#C271B4",
+                    "#C20D90",
+                  ]}
                 />
                 <div className="inline-flex flex-col items-start justify-center">
                   <div className="font-['Be Vietnam'] text-base font-bold uppercase text-white">
-                    {user.data?.name} ( Você )
+                    {post.user.name}
                   </div>
                   <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-white">
-                    @{user.data?.email}
+                    @{post.user.email}
                   </div>
                   <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-white">
                     Ontem

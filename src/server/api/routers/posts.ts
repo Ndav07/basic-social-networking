@@ -63,7 +63,7 @@ export const postsRouter = createTRPCRouter({
     }),
 
   findAllPost: protectedProcedure.query(async ({ ctx }) => {
-    return await ctx.prisma.post.findMany({ orderBy: { createdAt: "asc" } });
+    return await ctx.prisma.post.findMany({ orderBy: { createdAt: "asc" }, include: { user: { select: { name: true, email: true } } } });
   }),
 
   findPostFollowings: protectedProcedure.query(async ({ ctx }) => {
