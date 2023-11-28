@@ -1,7 +1,8 @@
+import { createId } from "@paralleldrive/cuid2";
+import { TRPCError } from "@trpc/server";
+import { hash } from "bcrypt";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { createId } from "@paralleldrive/cuid2";
-import { hash } from "bcrypt";
 
 const UserValidator = z.object({
   name: z.string().min(1),
@@ -14,6 +15,9 @@ export const usersRouter = createTRPCRouter({
     .input(UserValidator)
     .mutation(async ({ ctx, input }) => {
       const { name, email, password } = input;
+      const emailExists = await ctx.prisma.user.findUnique({where: {email}});
+
+      if(emailExists) throw new TRPCError({code: "BAD_REQUEST" , message: "O email já está em uso"});
 
       const hashedPassword = await hash(password, 8);
 

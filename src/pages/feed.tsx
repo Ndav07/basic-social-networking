@@ -6,6 +6,7 @@ import { api } from "~/utils/api";
 export default function Home() {
   const user = api.users.me.useQuery();
   const posts = api.users.myPosts.useQuery();
+  const allPosts = api.posts.findAllPost.useQuery();
   return (
     <TabsLayout>
       <div
@@ -26,6 +27,70 @@ export default function Home() {
 
         <div className="absolute left-[11px] inline-flex max-h-screen w-[368px] flex-col items-center justify-center gap-3 overflow-y-auto pt-[90px]">
           {posts.data?.map((post) => (
+            <div key={post.id} className="relative h-[232.25px] w-[368px]">
+              <div className="absolute top-0  inline-flex h-[70px] w-[274px] items-center justify-center gap-[13px]">
+                <Image
+                  width={70}
+                  height={70}
+                  alt="Imagem de Perfil"
+                  className="h-[70px] w-[70px] rounded-[26px]"
+                  src={"/images/perfil.png"}
+                />
+                <div className="inline-flex flex-col items-start justify-center">
+                  <div className="font-['Be Vietnam'] text-base font-bold uppercase text-white">
+                    {user.data?.name} ( Você )
+                  </div>
+                  <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-white">
+                    @{user.data?.email}
+                  </div>
+                  <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-white">
+                    Ontem
+                  </div>
+                </div>
+              </div>
+              <div className="absolute left-0 top-[76.20px] h-[156.05px] w-[368px]">
+                <div className="absolute left-0 top-[23.80px] inline-flex h-[132px] flex-col items-center justify-center gap-2.5 rounded-[26px] bg-white py-[22px]">
+                  <div className="font-['Be Vietnam'] w-[283px] pl-[10px] text-xs font-normal leading-[18px] text-zinc-800">
+                    {post.text}
+                  </div>
+                  <div className="inline-flex items-center justify-end gap-2.5 self-stretch pr-3.5">
+                    <div className="flex items-center gap-2.5">
+                      <div className="relative h-6 w-6"></div>
+                      <div className="flex items-center gap-2.5">
+                        <Image
+                          width={20}
+                          height={20}
+                          className="h-5 w-5 rounded-full"
+                          src={"/icons/like.svg"}
+                          alt="Emoji de Like"
+                        />
+                        <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-zinc-800">
+                          {post.likesCount}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                      <div className="relative h-6 w-6"></div>
+                      <div className="flex items-center gap-2.5">
+                        <Image
+                          width={20}
+                          height={20}
+                          className="h-5 w-5 rounded-full"
+                          src={"/icons/comentario.svg"}
+                          alt="Ícone de Comentário"
+                        />
+                        <div className="font-['Be Vietnam'] text-xs font-normal leading-[18px] text-zinc-800">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {allPosts.data?.map((post) => (
             <div key={post.id} className="relative h-[232.25px] w-[368px]">
               <div className="absolute top-0  inline-flex h-[70px] w-[274px] items-center justify-center gap-[13px]">
                 <Image

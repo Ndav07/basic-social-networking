@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <main className="flex h-screen w-screen items-center justify-center bg-main bg-cover bg-no-repeat">
@@ -6,7 +8,10 @@ export default function Home() {
           <div className="relative h-[196px] w-[703px]">
             <div className="absolute left-[28px] top-0 inline-flex items-center justify-center gap-[13px]">
               <div className="flex items-center justify-center gap-[13px] self-stretch">
-                <img
+                <Image
+                  width={70}
+                  height={70}
+                  alt="Imagem de perfil do usuário"
                   className="h-[70px] w-[70px] rounded-[26px]"
                   src={"images/perfil.png"}
                 />
@@ -34,7 +39,9 @@ export default function Home() {
                   <div className="flex items-center gap-2.5">
                     <div className="relative h-6 w-6"></div>
                     <div className="flex items-center gap-2.5">
-                      <img
+                      <Image
+                        height={20}
+                        width={20}
                         className="h-5 w-5 rounded-full"
                         src={"icons/like.svg"}
                         alt="Like"
@@ -47,7 +54,9 @@ export default function Home() {
                   <div className="flex items-center gap-2.5">
                     <div className="relative h-6 w-6"></div>
                     <div className="flex items-center gap-2.5">
-                      <img
+                      <Image
+                        height={20}
+                        width={20}
                         className="h-5 w-5 rounded-full"
                         src={"icons/comentario.svg"}
                         alt="Comentário"
