@@ -14,7 +14,7 @@ export default function ProfileScreen() {
   }
   return (
     <TabsLayout title="Meu Perfil">
-      <div className="flex h-full min-h-[calc(100vh+68px+82px)] w-screen flex-col items-center justify-start overflow-y-auto">
+      <div className="flex h-full max-h-screen min-h-[650px] w-screen flex-col items-center justify-start overflow-y-auto">
         <Avatar
           name={`${user.data?.name.split(" ")[0]} ${user.data?.name.split(
             " ",
